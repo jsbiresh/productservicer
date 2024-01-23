@@ -26,11 +26,12 @@ public class ProductController {
     @GetMapping("/{id}")
     public GenericProductDto getProductById(@PathVariable("id") Long id) {
         return productService.getProductById(id);
-//        return "hola Rafi";
     }
+
+
     @PostMapping("")
-    public String createProduct() {
-        return  "Product with ID "+ UUID.randomUUID() + " was created.";
+    public GenericProductDto createProduct(@RequestBody GenericProductDto productDto) {
+        return productService.createProduct(productDto);
     }
 
     @PutMapping("/{id}")
